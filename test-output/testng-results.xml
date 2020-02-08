@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="3" total="7" passed="4">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Suite" duration-ms="52077" started-at="2020-02-08T18:20:12Z" finished-at="2020-02-08T18:21:04Z">
+    <groups>
+    </groups>
+    <test name="createtest" duration-ms="52077" started-at="2020-02-08T18:20:12Z" finished-at="2020-02-08T18:21:04Z">
+      <class name="nvkidsframework.testcases.CreatePageTestcase">
+        <test-method status="PASS" signature="startReport(org.testng.ITestContext)[pri:0, instance:nvkidsframework.testcases.CreatePageTestcase@233fe9b6]" name="startReport" is-config="true" duration-ms="170" started-at="2020-02-08T18:20:12Z" finished-at="2020-02-08T18:20:12Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@117159c0]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startReport -->
+        <test-method status="PASS" signature="Deleteimages()[pri:0, instance:nvkidsframework.testcases.CreatePageTestcase@233fe9b6]" name="Deleteimages" is-config="true" duration-ms="8" started-at="2020-02-08T18:20:12Z" finished-at="2020-02-08T18:20:12Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Deleteimages -->
+        <test-method status="PASS" signature="beforeclass()[pri:0, instance:nvkidsframework.testcases.CreatePageTestcase@233fe9b6]" name="beforeclass" is-config="true" duration-ms="0" started-at="2020-02-08T18:20:12Z" finished-at="2020-02-08T18:20:12Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeclass -->
+        <test-method status="PASS" signature="configureAndLaunch(java.lang.reflect.Method)[pri:0, instance:nvkidsframework.testcases.CreatePageTestcase@233fe9b6]" name="configureAndLaunch" is-config="true" duration-ms="10977" started-at="2020-02-08T18:20:12Z" finished-at="2020-02-08T18:20:23Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void nvkidsframework.testcases.CreatePageTestcase.createLeaf_DemoCSR() throws java.lang.InterruptedException]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- configureAndLaunch -->
+        <test-method status="PASS" signature="createLeaf_DemoCSR()[pri:0, instance:nvkidsframework.testcases.CreatePageTestcase@233fe9b6]" name="createLeaf_DemoCSR" duration-ms="18042" started-at="2020-02-08T18:20:23Z" description="create leaf for demo CSR" finished-at="2020-02-08T18:20:41Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createLeaf_DemoCSR -->
+        <test-method status="PASS" signature="closeBrowser()[pri:0, instance:nvkidsframework.testcases.CreatePageTestcase@233fe9b6]" name="closeBrowser" is-config="true" duration-ms="1399" started-at="2020-02-08T18:20:41Z" finished-at="2020-02-08T18:20:42Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeBrowser -->
+        <test-method status="PASS" signature="configureAndLaunch(java.lang.reflect.Method)[pri:0, instance:nvkidsframework.testcases.CreatePageTestcase@233fe9b6]" name="configureAndLaunch" is-config="true" duration-ms="11058" started-at="2020-02-08T18:20:42Z" finished-at="2020-02-08T18:20:53Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void nvkidsframework.testcases.CreatePageTestcase.createLeaf_SalesManager() throws java.lang.InterruptedException]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- configureAndLaunch -->
+        <test-method status="PASS" signature="createLeaf_SalesManager()[pri:0, instance:nvkidsframework.testcases.CreatePageTestcase@233fe9b6]" name="createLeaf_SalesManager" duration-ms="9172" started-at="2020-02-08T18:20:53Z" description="create leaf for demo sales manager" finished-at="2020-02-08T18:21:02Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createLeaf_SalesManager -->
+        <test-method status="PASS" signature="closeBrowser()[pri:0, instance:nvkidsframework.testcases.CreatePageTestcase@233fe9b6]" name="closeBrowser" is-config="true" duration-ms="1292" started-at="2020-02-08T18:21:02Z" finished-at="2020-02-08T18:21:04Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeBrowser -->
+        <test-method status="PASS" signature="stopReport()[pri:0, instance:nvkidsframework.testcases.CreatePageTestcase@233fe9b6]" name="stopReport" is-config="true" duration-ms="1681" started-at="2020-02-08T18:21:04Z" finished-at="2020-02-08T18:21:06Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- stopReport -->
+      </class> <!-- nvkidsframework.testcases.CreatePageTestcase -->
+      <class name="nvkidsframework.testcases.CreatePageTestCaseAgain">
+        <test-method status="PASS" signature="beforeclass()[pri:0, instance:nvkidsframework.testcases.CreatePageTestCaseAgain@358ee631]" name="beforeclass" is-config="true" duration-ms="0" started-at="2020-02-08T18:20:12Z" finished-at="2020-02-08T18:20:12Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeclass -->
+        <test-method status="PASS" signature="configureAndLaunch(java.lang.reflect.Method)[pri:0, instance:nvkidsframework.testcases.CreatePageTestCaseAgain@358ee631]" name="configureAndLaunch" is-config="true" duration-ms="10977" started-at="2020-02-08T18:20:12Z" finished-at="2020-02-08T18:20:23Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void nvkidsframework.testcases.CreatePageTestCaseAgain.createLeaf_DemoCSR() throws java.lang.InterruptedException]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- configureAndLaunch -->
+        <test-method status="PASS" signature="createLeaf_DemoCSR()[pri:0, instance:nvkidsframework.testcases.CreatePageTestCaseAgain@358ee631]" name="createLeaf_DemoCSR" duration-ms="18164" started-at="2020-02-08T18:20:23Z" description=" Again create leaf for demo CSR" finished-at="2020-02-08T18:20:41Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createLeaf_DemoCSR -->
+        <test-method status="PASS" signature="closeBrowser()[pri:0, instance:nvkidsframework.testcases.CreatePageTestCaseAgain@358ee631]" name="closeBrowser" is-config="true" duration-ms="1272" started-at="2020-02-08T18:20:41Z" finished-at="2020-02-08T18:20:42Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeBrowser -->
+        <test-method status="PASS" signature="configureAndLaunch(java.lang.reflect.Method)[pri:0, instance:nvkidsframework.testcases.CreatePageTestCaseAgain@358ee631]" name="configureAndLaunch" is-config="true" duration-ms="11026" started-at="2020-02-08T18:20:42Z" finished-at="2020-02-08T18:20:53Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void nvkidsframework.testcases.CreatePageTestCaseAgain.createLeaf_SalesManager() throws java.lang.InterruptedException]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- configureAndLaunch -->
+        <test-method status="PASS" signature="createLeaf_SalesManager()[pri:0, instance:nvkidsframework.testcases.CreatePageTestCaseAgain@358ee631]" name="createLeaf_SalesManager" duration-ms="9203" started-at="2020-02-08T18:20:53Z" description="Again create leaf for demo sales manager" finished-at="2020-02-08T18:21:02Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createLeaf_SalesManager -->
+        <test-method status="PASS" signature="closeBrowser()[pri:0, instance:nvkidsframework.testcases.CreatePageTestCaseAgain@358ee631]" name="closeBrowser" is-config="true" duration-ms="1255" started-at="2020-02-08T18:21:02Z" finished-at="2020-02-08T18:21:04Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeBrowser -->
+      </class> <!-- nvkidsframework.testcases.CreatePageTestCaseAgain -->
+    </test> <!-- createtest -->
+  </suite> <!-- Suite -->
+</testng-results>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]" parallel="classes">
+  <test thread-count="5" name="createtest(failed)" parallel="classes">
+    <classes>
+      <class name="nvkidsframework.testcases.CreatePageTestCaseAgain">
+        <methods>
+          <include name="stopReport"/>
+          <include name="Deleteimages"/>
+          <include name="beforeclass"/>
+          <include name="closeBrowser"/>
+          <include name="startReport"/>
+          <include name="configureAndLaunch"/>
+          <include name="createLeaf_SalesManager"/>
+        </methods>
+      </class> <!-- nvkidsframework.testcases.CreatePageTestCaseAgain -->
+    </classes>
+  </test> <!-- createtest(failed) -->
+</suite> <!-- Failed suite [Suite] -->
