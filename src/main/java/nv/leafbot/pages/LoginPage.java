@@ -11,9 +11,10 @@ import org.openqa.selenium.support.PageFactory;
 import com.aventstack.extentreports.ExtentTest;
 
 import cucumber.api.java.en.Given;
-import nv.selenium.api.base.SeleniumBase;
+//import nv.selenium.api.base.SeleniumBase;
+import nv.selenium.utils.CommonLocators;
 
-public class LoginPage extends SeleniumBase{
+public class LoginPage extends CommonLocators{
 	
 	public LoginPage(RemoteWebDriver driver, ExtentTest test){
 		this.driver = driver;

@@ -5,9 +5,10 @@ package nvkidsframework.testcases;
 import org.testng.annotations.Test;
 
 import nv.leafbot.pages.LoginPage;
-import nv.selenium.api.base.SeleniumBase;
+//import nv.selenium.api.base.SeleniumBase;
+import nv.selenium.utils.CommonLocators;
 
-public class CreatePageTestcase extends SeleniumBase{
+public class CreatePageTestcase extends CommonLocators{
 	
 	
 //		public void setValues() {
