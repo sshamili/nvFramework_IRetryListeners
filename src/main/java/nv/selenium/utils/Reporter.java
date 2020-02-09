@@ -22,7 +22,7 @@ import com.aventstack.extentreports.reporter.configuration.ChartLocation;
 import com.aventstack.extentreports.reporter.configuration.Theme;
 
 	public abstract class Reporter {
-		public  RemoteWebDriver driver=null;
+		public RemoteWebDriver driver=null;
 		public static ExtentHtmlReporter reporter;
 		public static ExtentReports extent;
 		public ExtentTest test;

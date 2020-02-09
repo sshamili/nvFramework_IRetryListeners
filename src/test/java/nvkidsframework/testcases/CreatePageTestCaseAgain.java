@@ -1,10 +1,14 @@
 package nvkidsframework.testcases;
 
+import java.io.IOException;
+
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import nv.leafbot.pages.LoginPage;
 //import nv.selenium.api.base.SeleniumBase;
 import nv.selenium.utils.CommonLocators;
+import nv.selenium.utils.DataLibrary;
 
 public class CreatePageTestCaseAgain extends CommonLocators{
 	
@@ -19,20 +23,26 @@ public class CreatePageTestCaseAgain extends CommonLocators{
 //		dataSheetName1 = "TC009";
 //	
 //}
-	@Test(testName="TC_003", description="Again create leaf for demo sales manager")
-	public void createLeaf_SalesManager() throws InterruptedException {
+	
+	@DataProvider(name = "fetchData")
+	public Object[][] fetchData() throws IOException {
+		return DataLibrary.readExcelData("CreateLeaf_data");
+	}
+	
+	@Test(dataProvider="fetchData",testName="TC_003", description="Again create leaf for demo sales manager")
+	public void createLeaf_SalesManager(String username, String password) throws InterruptedException {
 		new LoginPage(driver, test)
-		.enterUserName("DemoSalesManager")
-		.enterPassword("crmsfa")
+		.enterUserName(username)
+		.enterPassword(password)
 		.clickLogin()
 		.clickLogout();		
 	}
 	
-	@Test(testName="TC_004", description=" Again create leaf for demo CSR")
-	public void createLeaf_DemoCSR() throws InterruptedException {
+	@Test(dataProvider="fetchData",testName="TC_004", description=" Again create leaf for demo CSR")
+	public void createLeaf_DemoCSR(String username, String password) throws InterruptedException {
 		new LoginPage(driver, test)
-		.enterUserName("DemoCSR")
-		.enterPassword("crmsf")
+		.enterUserName(username)
+		.enterPassword(password)
 		.clickLogInForFailer()
 		.verifyErrorMsg("User not found");
 	}

@@ -16,7 +16,7 @@ import nv.selenium.utils.CommonLocators;
 
 public class LoginPage extends CommonLocators{
 	
-	public LoginPage(RemoteWebDriver driver, ExtentTest test){
+	public LoginPage( RemoteWebDriver driver,ExtentTest test){
 		this.driver = driver;
 		this.test = test;
 		PageFactory.initElements(driver,this);
