@@ -2,6 +2,7 @@ package nv.leafbot.pages;
 
 
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.CacheLookup;
@@ -16,10 +17,14 @@ import nv.selenium.utils.CommonLocators;
 
 public class LoginPage extends CommonLocators{
 	
-	public LoginPage( RemoteWebDriver driver,ExtentTest test){
+	private WebDriver driver;
+
+
+	public  LoginPage( WebDriver driver,ExtentTest test){
 		this.driver = driver;
 		this.test = test;
 		PageFactory.initElements(driver,this);
+		System.out.println(" @test Thread: "+Thread.currentThread().getId());
 	}
 	@CacheLookup
 	@FindBy(how=How.ID,using="username")
@@ -36,7 +41,7 @@ public class LoginPage extends CommonLocators{
 	
 	
 	@Given("Enter the username as (.*)")
-	public LoginPage enterUserName(String data) throws InterruptedException {	
+	public  LoginPage enterUserName(String data) throws InterruptedException {	
 		//WebElement eleUsername = locateElement("id", "username");
 		Thread.sleep(5000);
 		clearAndType(eleUserName, data);

@@ -6,6 +6,8 @@ import java.util.Calendar;
 import java.util.TimeZone;
 
 import org.openqa.selenium.Capabilities;
+import org.openqa.selenium.HasCapabilities;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.ITestContext;
 import org.testng.annotations.AfterSuite;
@@ -22,7 +24,9 @@ import com.aventstack.extentreports.reporter.configuration.ChartLocation;
 import com.aventstack.extentreports.reporter.configuration.Theme;
 
 	public abstract class Reporter {
-		public RemoteWebDriver driver=null;
+//		public  RemoteWebDriver driver=null;
+		//public ThreadLocal<RemoteWebDriver> driver1 = new ThreadLocal<>();
+		
 		public static ExtentHtmlReporter reporter;
 		public static ExtentReports extent;
 		public ExtentTest test;
@@ -35,7 +39,7 @@ import com.aventstack.extentreports.reporter.configuration.Theme;
         public String extentreportpath;
 		
 		@BeforeSuite
-		public void startReport(ITestContext c) {
+		public  void startReport(ITestContext c) {
 			String reportName = this.getClass().getName().substring(29,33).toUpperCase()+" Screen Test Report";
 			String screenName = this.getClass().getName().substring(29,33).toUpperCase()+" Tests";
 			String rptName = "h5{font-size: 0px;}h5::after{content:\'"+screenName+"\';font-size: 1.64rem; line-height: 110%;margin:0.82rem 0 0.656rem 0;}";
@@ -55,7 +59,10 @@ import com.aventstack.extentreports.reporter.configuration.Theme;
 			reporter.config().setCSS(rptName);
 			
 		}
-		public void report() {
+//		public  RemoteWebDriver driver;
+		public static ThreadLocal <WebDriver> threadloc= new ThreadLocal<WebDriver>();
+		public  void report(RemoteWebDriver driver) {
+			//WebDriver driver = threadloc.get();
 			Capabilities browserCap = driver.getCapabilities();
 			
 			String browserName = browserCap.getBrowserName();

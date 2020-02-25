@@ -2,16 +2,12 @@ package nvkidsframework.testcases;
 
 
 
-import java.io.IOException;
-
-import org.apache.http.auth.UsernamePasswordCredentials;
-import org.testng.annotations.DataProvider;
+import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
 
 import nv.leafbot.pages.LoginPage;
 //import nv.selenium.api.base.SeleniumBase;
 import nv.selenium.utils.CommonLocators;
-import nv.selenium.utils.DataLibrary;
 
 
 public class CreatePageTestcase extends CommonLocators{
@@ -28,27 +24,33 @@ public class CreatePageTestcase extends CommonLocators{
 //		
 //	}
 	
-	@DataProvider(name = "fetchData")
-	public Object[][] fetchData() throws IOException {
-		return DataLibrary.readExcelData("CreateLeaf_data");
-	}	
+	/*
+	 * @DataProvider(name = "fetchData") public Object[][] fetchData() throws
+	 * IOException { return DataLibrary.readExcelData("CreateLeaf_data"); }
+	 */	
 	
-		@Test(dataProvider="fetchData",testName="TC_001", description="create leaf for demo sales manager")
-		public void createLeaf_SalesManager(String username, String password) throws InterruptedException {
+		@Test(testName="TC_001", description="create leaf for demo sales manager")
+		public void createLeaf_SalesManager() throws InterruptedException {
+			WebDriver driver = threadloc.get();
+			System.out.println("Executing Democsr");
 			new LoginPage(driver, test)
-			.enterUserName(username)
-			.enterPassword(password)
+			.enterUserName("democsr")
+			.enterPassword("crmsfa")
 			.clickLogin()
-			.clickLogout();		
+			.clickLogout();	
+			System.out.println("completed demo csr");
 		}
 		
-		@Test(dataProvider="fetchData",testName="TC_002", description="create leaf for demo CSR")
-		public void createLeaf_DemoCSR(String username, String password) throws InterruptedException {
+		@Test(testName="TC_002",  description="create leaf for demo CSR")
+		public void createLeaf_DemoCSR() throws InterruptedException {
+			System.out.println("Executing DemoSalesmanager");
+			WebDriver driver = threadloc.get();
 			new LoginPage(driver, test)
-			.enterUserName(username)
-			.enterPassword(password)
+			.enterUserName("demosalemanager")
+			.enterPassword("crmsfa")
 			.clickLogInForFailer()
 			.verifyErrorMsg("User not found");
+			System.out.println("completed demo sales manager");
 		}
 
 }

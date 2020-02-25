@@ -1,19 +1,18 @@
 package nv.selenium.api.base;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.lang.reflect.Method;
-import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.io.FileUtils;
-import org.apache.log4j.PropertyConfigurator;
 import org.openqa.selenium.ElementNotInteractableException;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.StaleElementReferenceException;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -25,13 +24,10 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import org.testng.log4testng.Logger;
-
-import com.aventstack.extentreports.ExtentReports;
-import com.aventstack.extentreports.ExtentTest;
-
 
 import nv.selenium.api.design.Browser;
 import nv.selenium.api.design.Element;
@@ -47,16 +43,16 @@ public class SeleniumBase extends Reporter implements Browser, Element{
 	//ExtentTest logger;
 	public String hubIPAddress;
 	@BeforeClass
-	public void beforeclass() throws FileNotFoundException, IOException{
+	public  void beforeclass() throws FileNotFoundException, IOException{
 //		prop.load(new FileInputStream("./Resources/log4j.properties"));
 //		PropertyConfigurator.configure(prop);
 		author =System.getProperty("user.name");
 		
-		
 	}
 	
 	@BeforeMethod
-	public void configureAndLaunch(Method m) throws IOException {
+	public  synchronized void configureAndLaunch(Method m) throws IOException {
+		
 		Test testClass=m.getAnnotation(Test.class);
 //		testcaseName =m.getName();
 		testcaseName = testClass.testName();
@@ -68,14 +64,16 @@ public class SeleniumBase extends Reporter implements Browser, Element{
 			category =category+group[i]+", ";
 		
 		}
-		String Browser="chrome";
+		//String Browser="chrome";
 		String URL ="http://leaftaps.com/opentaps";
+		String Browser="chrome";
 		if(category!="")
 			category=category.substring(0, category.length()-2);
 			else
 				category="";
-		startApp(Browser,URL);
-		report();
+		RemoteWebDriver driver = startApp(Browser,URL);
+		
+		report(driver);
 	}
 		
 		
@@ -112,6 +110,7 @@ public class SeleniumBase extends Reporter implements Browser, Element{
 	@Override
 	public WebElement locateElement(String locatorType, String value) {
 		try {
+			RemoteWebDriver driver = (RemoteWebDriver) threadloc.get();
 			switch(locatorType.toLowerCase()) {
 			case "id": return driver.findElementById(value);
 			case "name": return driver.findElementByName(value);
@@ -130,13 +129,16 @@ public class SeleniumBase extends Reporter implements Browser, Element{
 		
 	@AfterMethod
 	public void closeBrowser() {
+		WebDriver driver = threadloc.get();
 		driver.quit();
+		//driver1.remove();
 	}
 	
 	@Override
 	public void click(WebElement ele) {
 		String text="";
 		try {
+			WebDriver driver = threadloc.get();
 			wait = new WebDriverWait(driver, 10);
 			wait.until(ExpectedConditions.elementToBeClickable(ele));
 			text = ele.getText();
@@ -154,7 +156,8 @@ public class SeleniumBase extends Reporter implements Browser, Element{
 	public long takeSnap() {
 		long number = (long) Math.floor(Math.random() * 900000000L) + 10000000L; 
 		try {
-			FileUtils.copyFile(driver.getScreenshotAs(OutputType.FILE) , new File("./reports/images/"+number+".jpg"));
+			WebDriver driver = threadloc.get();
+			FileUtils.copyFile(((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE) , new File("./reports/images/"+number+".jpg"));
 		} catch (WebDriverException e) {
 			System.out.println("The browser has been closed.");
 		} catch (IOException e) {
@@ -163,8 +166,10 @@ public class SeleniumBase extends Reporter implements Browser, Element{
 		return number;
 	}
 	
+	
 	@Override
-	public RemoteWebDriver startApp(String browser, String url) {
+	public   synchronized RemoteWebDriver startApp(String browser, String url) {
+		RemoteWebDriver driver=null;
 		try {
 			if(browser.equalsIgnoreCase("chrome")) {
 				System.setProperty("webdriver.chrome.driver",
@@ -179,9 +184,12 @@ public class SeleniumBase extends Reporter implements Browser, Element{
 						"./drivers/IEDriverServer.exe");
 				driver = new InternetExplorerDriver();
 			}
+			threadloc.set(driver);
+			driver = (RemoteWebDriver) threadloc.get();
 			driver.navigate().to(url);
 			driver.manage().window().maximize();
 			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			//return driver;
 		} catch (Exception e) {
 		System.err.println("The browser could not be launched");
 		} 

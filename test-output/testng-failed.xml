@@ -1,20 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]" parallel="instances">
+<suite thread-count="4" guice-stage="DEVELOPMENT" name="Failed suite [Suite]" parallel="tests">
   <listeners>
     <listener class-name="nvkidsframework.testcases.AnnotationTransformer"/>
   </listeners>
-  <test thread-count="5" name="createtest(failed)" parallel="instances">
+  <test thread-count="4" name="createtest_Firefox(failed)" parallel="tests">
+    <parameter name="Browser" value="firefox"/>
     <classes>
       <class name="nvkidsframework.testcases.CreatePageTestCaseAgain">
         <methods>
           <include name="stopReport"/>
           <include name="Deleteimages"/>
           <include name="beforeclass"/>
-          <include name="createLeaf_DemoCSR" invocation-numbers="0"/>
+          <include name="createLeaf_DemoCSR"/>
           <include name="closeBrowser"/>
           <include name="startReport"/>
           <include name="configureAndLaunch"/>
+          <include name="createLeaf_SalesManager"/>
         </methods>
       </class> <!-- nvkidsframework.testcases.CreatePageTestCaseAgain -->
       <class name="nvkidsframework.testcases.CreatePageTestcase">
@@ -24,10 +26,11 @@
           <include name="beforeclass"/>
           <include name="closeBrowser"/>
           <include name="startReport"/>
-          <include name="createLeaf_DemoCSR" invocation-numbers="0"/>
+          <include name="createLeaf_SalesManager"/>
+          <include name="createLeaf_DemoCSR"/>
           <include name="configureAndLaunch"/>
         </methods>
       </class> <!-- nvkidsframework.testcases.CreatePageTestcase -->
     </classes>
-  </test> <!-- createtest(failed) -->
+  </test> <!-- createtest_Firefox(failed) -->
 </suite> <!-- Failed suite [Suite] -->
